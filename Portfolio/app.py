@@ -373,11 +373,11 @@ with st.container():
     st.markdown("## 📱 Scan to Share This Resume")
     
     # Get the current Streamlit URL
-    current_url = st.experimental_get_query_params()
+    current_url = st.query_params
     
     # Create QR code
     qr = qrcode.QRCode(version=1, box_size=10, border=5)
-    qr.add_data(st.experimental_get_query_params().get('url', [''])[0] or "https://your-streamlit-app-url.streamlit.app")
+    qr.add_data(st.query_params.get('url', '') or "https://resume-portfolio-3nyp3hlxffbqfwiqhnfs6g.streamlit.app")
     qr.make(fit=True)
     
     # Create QR code image
